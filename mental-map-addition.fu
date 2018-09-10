@@ -1,0 +1,79 @@
+# the value `a`
+a
+
+# define sum
+sum :: a -> b -> a + b
+
+/* evaluate `sum 1 2`
+
+reduce sum 1 2
+<- identity sum
+<- sum
+<- sum 1
+<- b -> 1 + b
+<- sum 1 2
+<- 1 + 2
+<- 3
+*/
+
+# infix
+infix :: function -> argument -> function argument
+
+# infix of `sum`
++ infix sum
+
+# use infix of sum
+1 + 2
+
+/* evaluate 1 + 2
+
+reduce 1 + 2
+<- identity 1
+<- 1
+<- + 1
+<- infix sum 1
+<- b -> 1 + b
+<- infix sum 1 2
+<- 1 + 2
+<- 3
+*/
+
+# sum more than 2 numbers
+sum 1 2 3
+
+/* evaluate `sum 1 2 3`
+
+reduce sum 1 2 3
+<- identity sum
+<- sum
+<- sum 1
+<- b -> 1 + b
+<- sum 1 2
+<- 1 + 2
+<- 3
+<- 3 3
+#######################################
+want it to evaluate to 6
+*/
+
+# add more than 2 values
+1 + 2 + 3
+
+/* evaluate 1 + 2 + 3
+
+reduce 1 + 2 + 3
+<- identity 1
+<- 1
+<- + 1
+<- infix sum 1
+<- b -> 1 + b
+<- infix sum 1 2
+<- 1 + 2
+<- 3
+<- + 3
+<- infix sum 3
+<- b -> 3 + b
+<- infix sum 3 3
+<- 3 + 3
+<- 6
+*/

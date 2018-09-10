@@ -1,0 +1,40 @@
+# define sum
+sum :: a -> b -> a + b
+
+# infix
+infix :: function -> argument -> (function argument)
+
+# infix of `sum`
++ infix sum
+
+# multiply is
+multiply :: a -> b -> a * b
+
+# infix of `multiply`
+* infix multiply
+
+# do something like multiply later
+1 + 2 + 3 * 4
+
+reduce 1 + 2 + 3 * 4
+<- identity 1
+<- 1
+<- + 1
+<- infix sum 1
+<- b -> 1 + b
+<- infix sum 1 2
+<- 1 + 2
+<- 3
+<- + 3
+<- infix sum 3
+<- b -> 3 + b
+<- infix sum 3 3
+<- 3 + 3
+<- 6 *
+<- infix multiply 6
+<- b -> 6 * b
+<- infix multiply 6 3
+<- 6 * 3
+<- NOT THE RIGHT ANSWER EXCEPTION(18)
+
+Maybe we don't need to care about order of operation with infix

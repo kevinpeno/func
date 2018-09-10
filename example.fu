@@ -1,0 +1,61 @@
+# :: a -> #
+# This is a comment
+
+# This is a declared identifier
+a :: 10
+
+# `->` is a reserved identifier defined by the compiler to allow the creation of functions
+# This is a function declaration that accepts a value (declared as `x`) and returns that value
+x -> x
+
+# This declares `identity` and points it to the function declaration `x -> x`
+identity :: x -> x
+
+# This is how the declared `identity` is called with the value 10
+identity 10
+
+# This is the a declaration of a pointer to the result of `identity 10`
+answer :: identity 10
+
+# This is a function that adds two numbers together
+sum = a -> b -> a + b
+
+# I imagine this working as a [].reduce like function
+# JS implementation:
+# const sum = (a) -> (b) -> [a, b].reduce((acc, v) => acc + v)
+#
+# but then I should be able to add more if I want?
+# sum a b c
+# should resolve to (a -> (b -> (c -> (a+b+c))))
+# basically all "to be summed" values as stored in a list and processed when actually needed
+# the "function" is what the system calls when it wants that value
+
+# This is the declaration of the "type" `Number`
+# Types help in identification (which helps transform values to something useful)
+Number = x -> x
+
+# Because defining types is common (and they are just identity functions) you can declare them like this
+type Number
+
+# This is a List
+List 10 20 30
+
+# We declare `List` as
+List = x -> List x
+
+# This is a record
+{
+	name = "something"
+}
+
+# this is a record declaration
+Person :: {
+	# this is a property on the record
+	name :: string
+}
+
+# This is a record implementation
+person = Person {
+	# this sets the value of the property "name" as "Kevin"
+	name = "Kevin"
+}
